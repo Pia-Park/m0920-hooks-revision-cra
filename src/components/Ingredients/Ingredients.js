@@ -24,6 +24,15 @@ function Ingredients() {
       })
   }, [])
 
+  useEffect(() => {
+    console.log('Rendering Ingredients...', userIngredients);
+
+
+    // return () => {
+    //   console.log('this componet will be unmounted....');
+    // }
+  }, [userIngredients])
+
   const addIngredientsHandler = (ingredients) => {
     // setUserIngredients((prevState)=>[
     //   ...prevState, 
@@ -43,6 +52,12 @@ function Ingredients() {
         ])
       })
 
+  }
+
+  const removeIngredientHandler = ingredientID =>{
+    setUserIngredients(prevState => {
+      prevState.filter(ingredient => ingredient.id !== ingredientID)
+    })
   }
 
   return (
