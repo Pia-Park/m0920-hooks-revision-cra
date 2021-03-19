@@ -7,7 +7,7 @@ const CityWeather = (props) => {
     const [weatherIcon, setWeatherIcom] = useState('')
 
     // state = {}
-    const [cityData, setCityData] = useEffect()
+    const [cityData, setCityData] = useEffect('')
 
     useEffect(()=>{
         getWeather();
