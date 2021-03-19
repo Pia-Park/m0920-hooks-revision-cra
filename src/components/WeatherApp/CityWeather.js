@@ -3,9 +3,12 @@ import axios from 'axios';
 
 const CityWeather = (props) => {
 
+
     const [weatherIcon, setWeatherIcom] = useState('')
 
     // state = {}
+    // const [cityData, setCityData] = useEffect()
+
     useEffect(()=>{
         getWeather();
     },[props.cityName])
@@ -14,7 +17,8 @@ const CityWeather = (props) => {
         const result = await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?q=${props.cityName}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         ).then(resposeData => {
-            console.log(resposeData);
+            console.log(resposeData.data);
+            // setCityData(resposeData.data);
         }).catch(error => console.log(error))
     } 
 
@@ -23,6 +27,7 @@ const CityWeather = (props) => {
 
     return(
         <h1>{props.cityName}</h1>
+        
     )
 }
 
